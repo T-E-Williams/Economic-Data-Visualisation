@@ -69,7 +69,9 @@ imd_df.rename(columns = {'Index of Multiple Deprivation (IMD) Rank (where 1 is m
 print(imd_df.dtypes)
 
 #Set up a scatter plot displaying the IMD Rank of the different districts
-alt.Chart(imd_df).mark_point().encode(
+chart = alt.Chart(imd_df).mark_point().encode(
 x='IMD Rank',
 y='District Name'
 )
+
+chart.save('imd_rank_chart.html')
