@@ -1,6 +1,7 @@
 import pandas as pd
 import altair as alt
 
+
 popList = [56286961, 5463300, 3152879, 1893667]
 print(popList)
 print("-----")
@@ -70,8 +71,41 @@ print(imd_df.dtypes)
 
 #Set up a scatter plot displaying the IMD Rank of the different districts
 chart = alt.Chart(imd_df).mark_point().encode(
-x='IMD Rank',
-y='District Name'
+x='IMD Rank:Q',
+y='District Name:N'
+)
+
+
+#Set up a scatter plot displaying the IMD Rank average across different districts
+chart_two = alt.Chart(imd_df).mark_point().encode(
+x= 'average(IMD Rank):Q',
+y='District Name:N'
 )
 
 chart.save('imd_rank_chart.html')
+
+chart_two.save('imd_average_rank_chart.html')
+
+#Set up a bar chart instead of a scatter plot
+chart_three = alt.Chart(imd_df).mark_bar().encode(
+x='average(IMD Rank)',
+y='District Name'
+)
+
+chart_three.save('imd_bar_chart.html')
+
+#Set up a bar chart instead of a scatter plot
+chart_four = alt.Chart(imd_df).mark_bar().encode(
+x='District Name',
+y='average(IMD Rank)'
+)
+
+chart_four.save('imd_bar_chart_flipped.html')
+
+#setup a scatterplot displaying IMD Rank vs Income Rank
+chart_five = alt.Chart(imd_df).mark_point().encode(
+x='Income Rank',
+y='IMD Rank'
+)
+
+chart_five.save('Scattered_chart.html')
