@@ -82,9 +82,9 @@ x= 'average(IMD Rank):Q',
 y='District Name:N'
 )
 
-chart.save('imd_rank_chart.html')
+#chart.save('imd_rank_chart.html')
 
-chart_two.save('imd_average_rank_chart.html')
+#chart_two.save('imd_average_rank_chart.html')
 
 #Set up a bar chart instead of a scatter plot
 chart_three = alt.Chart(imd_df).mark_bar().encode(
@@ -92,7 +92,7 @@ x='average(IMD Rank)',
 y='District Name'
 )
 
-chart_three.save('imd_bar_chart.html')
+#chart_three.save('imd_bar_chart.html')
 
 #Set up a bar chart instead of a scatter plot
 chart_four = alt.Chart(imd_df).mark_bar().encode(
@@ -100,7 +100,7 @@ x='District Name',
 y='average(IMD Rank)'
 )
 
-chart_four.save('imd_bar_chart_flipped.html')
+#chart_four.save('imd_bar_chart_flipped.html')
 
 #setup a scatterplot displaying IMD Rank vs Income Rank
 chart_five = alt.Chart(imd_df).mark_point().encode(
@@ -108,4 +108,14 @@ x='Income Rank',
 y='IMD Rank'
 )
 
-chart_five.save('Scattered_chart.html')
+#chart_five.save('Scattered_chart.html')
+
+
+#set up a scatter plot with colour distinctions
+chart_six = alt.Chart(imd_df).mark_point().encode(
+x='Income Rank',
+y='IMD Rank',
+color='District Name'
+)
+
+chart_six.save('scatter_colour_chart.html')
